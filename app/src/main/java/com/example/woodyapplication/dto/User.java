@@ -1,5 +1,7 @@
 package com.example.woodyapplication.dto;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
 
     int kind;

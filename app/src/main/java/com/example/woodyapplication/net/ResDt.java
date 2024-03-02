@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class ResDt {
 
     @SerializedName("result")
-    private String result;
+    private ResultT result;
 
     @SerializedName("status")
     private String status;
@@ -31,11 +31,11 @@ public class ResDt {
         this.status = status;
     }
 
-    public String getResult() {
+    public ResultT getResult() {
         return result;
     }
 
-    public void setResult(String result) {
+    public void setResult(ResultT result) {
         this.result = result;
     }
 

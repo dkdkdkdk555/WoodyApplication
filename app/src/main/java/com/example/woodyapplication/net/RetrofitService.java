@@ -1,5 +1,6 @@
 package com.example.woodyapplication.net;
 
+import com.example.woodyapplication.dto.AccountLoginRequestDto;
 import com.example.woodyapplication.dto.User;
 
 import retrofit2.Call;
@@ -15,6 +16,6 @@ public interface RetrofitService {
     Call<ResDt> requestSingUp(@Body User user); // post방식
 
     @POST("/api/v1/authenticates")
-    Call<ResDt> requestLogin(@Body User user);
+    Call<ResDt> requestLogin(@Body AccountLoginRequestDto accountLoginRequestDto);
 
 }
