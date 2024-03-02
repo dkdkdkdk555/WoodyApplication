@@ -7,10 +7,14 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.woodyapplication.dto.User;
+import com.example.woodyapplication.eventlistener.MsgSender;
 import com.example.woodyapplication.net.RetrofitClient;
+import com.example.woodyapplication.net.RetrofitManager;
+import com.example.woodyapplication.net.RetrofitService;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements MsgSender {
 
     private RetrofitClient retrofitClient;
     // private initMyApi initMyApi;
@@ -20,10 +24,16 @@ public class LoginActivity extends AppCompatActivity {
     private String id;
     private String pass;
 
+    private RetrofitService retrofitService;
+    private RetrofitManager retrofitManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        retrofitService = RetrofitClient.createService(RetrofitService.class, "");
+        retrofitManager = new RetrofitManager(retrofitService);
 
         et_id= findViewById(R.id.et_id);
         id = et_id.getText().toString();
@@ -41,26 +51,17 @@ public class LoginActivity extends AppCompatActivity {
                 String id = et_id.getText().toString();
                 String pw = et_pass.getText().toString();
 
-                // hideKeyboard();
+                User user = new User(id, pw);
 
-                //로그인 정보 미입력 시
-//                if (id.trim().length() == 0 || pw.trim().length() == 0 || id == null || pw == null) {
-//
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-//                    builder.setTitle("알림")
-//                            .setMessage("로그인 정보를 입력바랍니다.")
-//                            .setPositiveButton("확인", null)
-//                            .create()
-//                            .show();
-//                    AlertDialog alertDialog = builder.create();
-//                    alertDialog.show();
-//
-//                } else {
-//                    //로그인 통신
-//                 //   LoginResponse();
-//                }
+                retrofitManager.logIn(user, LoginActivity.this);
+
             }
         });
     }
 
+    @Override
+    public void sendObj(String msg, Object obj) {
+
+
+    }
 }

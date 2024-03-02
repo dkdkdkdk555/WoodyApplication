@@ -3,13 +3,18 @@ package com.example.woodyapplication.dto;
 public class User {
 
     int kind;
-    String email;
-    String password;
+    String email; // 로그인시 id
+    String password; // 비밀번호
     String name;
     String phoneNumber;
     String extraPhoneNumber;
     int accoutGroupId;
     boolean verify;
+
+    public User(String email, String password){
+        this.email = email;
+        this.password = password;
+    }
 
     public User(int kind, String email, String password, String name, String phoneNumber, String extraPhoneNumber, int accoutGroupId, boolean verify) {
         this.kind = kind;

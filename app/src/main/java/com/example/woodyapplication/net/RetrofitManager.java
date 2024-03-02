@@ -35,4 +35,22 @@ public class RetrofitManager {
             }
         } );
     }
+
+    public void logIn(User user, MsgSender msgSender){
+
+        Call<ResDt> call = retrofitService.requestSingUp(user);
+
+        call.enqueue( new Callback<ResDt>() {
+            @Override
+            public void onResponse(Call<ResDt> call, Response<ResDt> response) {
+                Log.d("PUH", response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<ResDt> call, Throwable t) {
+                Log.d("PUH","onFailure");
+            }
+        } );
+    }
+
 }

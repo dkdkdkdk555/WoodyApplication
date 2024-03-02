@@ -14,4 +14,7 @@ public interface RetrofitService {
     @POST("/api/v1/account")
     Call<ResDt> requestSingUp(@Body User user); // post방식
 
+    @POST("/api/v1/authenticates")
+    Call<ResDt> requestLogin(@Body User user);
+
 }
