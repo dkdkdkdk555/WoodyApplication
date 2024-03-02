@@ -2,10 +2,10 @@ package com.example.woodyapplication.net;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ResDt {
+public class ResDt<T> {
 
     @SerializedName("result")
-    private ResultT result;
+    private T result;
 
     @SerializedName("status")
     private String status;
@@ -31,11 +31,11 @@ public class ResDt {
         this.status = status;
     }
 
-    public ResultT getResult() {
+    public T getResult() {
         return result;
     }
 
-    public void setResult(ResultT result) {
+    public void setResult(T result) {
         this.result = result;
     }
 

@@ -3,6 +3,8 @@ package com.example.woodyapplication.net;
 import com.example.woodyapplication.dto.AccountLoginRequestDto;
 import com.example.woodyapplication.dto.User;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -16,6 +18,9 @@ public interface RetrofitService {
     Call<ResDt> requestSingUp(@Body User user); // post방식
 
     @POST("/api/v1/authenticates")
-    Call<ResDt> requestLogin(@Body AccountLoginRequestDto accountLoginRequestDto);
+    Call<ResDt<ResultT>> requestLogin(@Body AccountLoginRequestDto accountLoginRequestDto);
+
+    @GET("/api/v1/accountgroup/list")
+    Call<ResDt<List<ResGroup>>> requestGroupList();
 
 }
