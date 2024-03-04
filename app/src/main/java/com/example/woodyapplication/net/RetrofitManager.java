@@ -63,6 +63,7 @@ public class RetrofitManager {
         } );
     }
 
+    // 그룹 리스트
     public void getGroupList(MsgSender msgSender){
 
         Call<ResDt<List<ResGroup>>> call = retrofitService.requestGroupList();
@@ -82,4 +83,152 @@ public class RetrofitManager {
         } );
     }
 
+    // 회원 정보 조회
+    public void getAcountInfo(int id, MsgSender msgSender){
+
+        Call<TempDto> call = retrofitService.requestAccoutInfo(id);
+
+        // 비동기로 백그라운드 쓰레드로 동작
+        call.enqueue( new Callback<TempDto>() {
+            @Override
+            public void onResponse(Call<TempDto> call, Response<TempDto> response) {
+                Log.d("PUH", response.body().toString());
+//                msgSender.sendObj("list", response.body());
+            }
+
+            @Override
+            public void onFailure(Call<TempDto> call, Throwable t) {
+                Log.d("PUH","onFailure");
+            }
+        } );
+    }
+
+    // 회원 리스트
+    public void getAcountList(MsgSender msgSender){
+
+        Call<TempDto> call = retrofitService.requestAccountList();
+
+        // 비동기로 백그라운드 쓰레드로 동작
+        call.enqueue( new Callback<TempDto>() {
+            @Override
+            public void onResponse(Call<TempDto> call, Response<TempDto> response) {
+                Log.d("PUH", response.body().toString());
+//                msgSender.sendObj("list", response.body());
+            }
+
+            @Override
+            public void onFailure(Call<TempDto> call, Throwable t) {
+                Log.d("PUH","onFailure");
+            }
+        } );
+    }
+
+    // 그룹 생성
+    private void createAccountGroup(String groupName) {
+        AccountGroupSaveRequestDto requestDto = new AccountGroupSaveRequestDto(groupName);
+
+        Call<Void> call = retrofitService.createAccountGroup(requestDto);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // 성공적으로 처리됨
+                    Log.d("MainActivity", "Account group created successfully");
+                } else {
+                    // 서버가 다른 상태 코드로 응답한 경우 처리
+                    Log.e("MainActivity", "Failed to create account group, error code: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // 네트워크 오류 또는 요청 실패
+                Log.e("MainActivity", "Failed to create account group", t);
+            }
+        });
+    }
+
+    // 그룹 조회
+    public void getGroupInfo(int id, MsgSender msgSender){
+
+        Call<TempDto> call = retrofitService.requestGroupInfo(id);
+
+        // 비동기로 백그라운드 쓰레드로 동작
+        call.enqueue( new Callback<TempDto>() {
+            @Override
+            public void onResponse(Call<TempDto> call, Response<TempDto> response) {
+                Log.d("PUH", response.body().toString());
+//                msgSender.sendObj("list", response.body());
+            }
+
+            @Override
+            public void onFailure(Call<TempDto> call, Throwable t) {
+                Log.d("PUH","onFailure");
+            }
+        } );
+    }
+
+    // 프로젝트 생성
+    private void createProject(ProjectRequestDto projectRequestDto) {
+
+        Call<Void> call = retrofitService.createProject(projectRequestDto);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // 성공적으로 처리됨
+                    Log.d("MainActivity", "Account group created successfully");
+                } else {
+                    // 서버가 다른 상태 코드로 응답한 경우 처리
+                    Log.e("MainActivity", "Failed to create account group, error code: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // 네트워크 오류 또는 요청 실패
+                Log.e("MainActivity", "Failed to create account group", t);
+            }
+        });
+    }
+
+    // 프로젝트 조회
+    public void getProjectInfo(int id, MsgSender msgSender){
+
+        Call<TempDto> call = retrofitService.requestProjectInfo(id);
+
+        // 비동기로 백그라운드 쓰레드로 동작
+        call.enqueue( new Callback<TempDto>() {
+            @Override
+            public void onResponse(Call<TempDto> call, Response<TempDto> response) {
+                Log.d("PUH", response.body().toString());
+//                msgSender.sendObj("list", response.body());
+            }
+
+            @Override
+            public void onFailure(Call<TempDto> call, Throwable t) {
+                Log.d("PUH","onFailure");
+            }
+        } );
+    }
+
+    // 프로젝트 리스트
+    public void getProjectList(MsgSender msgSender){
+
+        Call<TempDto> call = retrofitService.requestProjectList();
+
+        // 비동기로 백그라운드 쓰레드로 동작
+        call.enqueue( new Callback<TempDto>() {
+            @Override
+            public void onResponse(Call<TempDto> call, Response<TempDto> response) {
+                Log.d("PUH", response.body().toString());
+//                msgSender.sendObj("list", response.body());
+            }
+
+            @Override
+            public void onFailure(Call<TempDto> call, Throwable t) {
+                Log.d("PUH","onFailure");
+            }
+        } );
+    }
 }
