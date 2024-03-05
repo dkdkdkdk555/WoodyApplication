@@ -34,7 +34,7 @@ public interface RetrofitService {
 
     // 그룹 등록
     @POST("/api/v1/accountgroup")
-    Call<Void> createAccountGroup(@Body AccountGroupSaveRequestDto requestDto);
+    Call<Void> createAccountGroup(@Body RequestDto requestDto);
 
     // 그룹 list
     @GET("/api/v1/accountgroup/list")
@@ -46,7 +46,7 @@ public interface RetrofitService {
 
     // 그룹 삭제 (state : 0-활성화, 100-비활성화)
     @PUT("/api/v1/accountgroup/{id}")
-    Call<ResDt<Object>> deleteGroup(@Path("id")int id, @Body AccountGroupSaveRequestDto dto);
+    Call<Void> deleteGroup(@Path("id")int id, @Body RequestDto requestDto);
 
     // 프로젝트 등록
     @POST("/api/v1/project")

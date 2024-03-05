@@ -124,7 +124,7 @@ public class RetrofitManager {
     }
 
     // 그룹 생성
-    private void createAccountGroup(AccountGroupSaveRequestDto requestDto) {
+    public void createAccountGroup(RequestDto requestDto, MsgSender msgSender) {
 
         Call<Void> call = retrofitService.createAccountGroup(requestDto);
         call.enqueue(new Callback<Void>() {
@@ -148,12 +148,12 @@ public class RetrofitManager {
     }
 
     // 그룹 삭제
-    public void deleteAccountGroup(int id, AccountGroupSaveRequestDto requestDto, MsgSender msgSender) {
+    public void deleteAccountGroup(int id, RequestDto requestDto, MsgSender msgSender) {
 
-        Call<ResDt<Object>> call = retrofitService.deleteGroup(id, requestDto);
-        call.enqueue(new Callback<ResDt<Object>>() {
+        Call<Void> call = retrofitService.deleteGroup(id, requestDto);
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<ResDt<Object>> call, Response<ResDt<Object>> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
                     // 성공적으로 처리됨
                     Log.e("PUH", response.body().toString());
@@ -164,7 +164,7 @@ public class RetrofitManager {
             }
 
             @Override
-            public void onFailure(Call<ResDt<Object>> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 // 네트워크 오류 또는 요청 실패
                 Log.e("MainActivity", "Failed to create account group", t);
             }

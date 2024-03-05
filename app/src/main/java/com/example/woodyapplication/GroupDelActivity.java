@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.woodyapplication.eventlistener.MsgSender;
 import com.example.woodyapplication.net.AccountGroupSaveRequestDto;
+import com.example.woodyapplication.net.RequestDto;
 import com.example.woodyapplication.net.ResGroup;
 import com.example.woodyapplication.net.RetrofitClient;
 import com.example.woodyapplication.net.RetrofitManager;
@@ -51,12 +52,12 @@ public class GroupDelActivity extends AppCompatActivity implements MsgSender {
                 String stateV = String.valueOf(state.getText());
                 String nameV = String.valueOf(name.getText());
 
-                AccountGroupSaveRequestDto res = new AccountGroupSaveRequestDto();
-                res.setId(id);
-                if(stateV != null || stateV != "") res.setState(Integer.parseInt(stateV));
-                if(nameV != null || nameV != "") res.setName(nameV);
+                RequestDto requestDto = new RequestDto();
+//                res.setId(id);
+//                if(stateV != null || stateV != "") res.setState(Integer.parseInt(stateV));
+                if(nameV != null || nameV != "") requestDto.setName(nameV);
 
-                retrofitManager.deleteAccountGroup(id, res, GroupDelActivity.this);
+                retrofitManager.deleteAccountGroup(id, requestDto, GroupDelActivity.this);
             }
         });
 
