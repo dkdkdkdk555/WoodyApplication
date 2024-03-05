@@ -17,7 +17,9 @@ import com.example.woodyapplication.net.RetrofitClient;
 import com.example.woodyapplication.net.RetrofitManager;
 import com.example.woodyapplication.net.RetrofitService;
 
-
+/**
+ * 로그인, JWT 발급
+ */
 public class LoginActivity extends AppCompatActivity implements MsgSender {
 
     private RetrofitClient retrofitClient;
@@ -37,7 +39,11 @@ public class LoginActivity extends AppCompatActivity implements MsgSender {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        context = LoginActivity.this;
+
+        // retrofit 서비스 생성
         retrofitService = RetrofitClient.createService(RetrofitService.class, "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJydXJpa2ltQG1lZ2FicmlkZ2UuY28ua3IiLCJhdXRoIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcwOTQ0MTcxNH0.2f-IHvmn72z4x1XBWLAYdbR8f4ZtEnYwlI1OHNWyNEVYVnBxmrxRcGv7KBUm20MbOEDe3U6mv6zzWvJ1BWFu6w");
+        // retrofit 매니져 초기화
         retrofitManager = new RetrofitManager(retrofitService);
 
         et_id= findViewById(R.id.et_id);
@@ -58,6 +64,7 @@ public class LoginActivity extends AppCompatActivity implements MsgSender {
 
 //                User user = new User(id, pw);
                 AccountLoginRequestDto user = new AccountLoginRequestDto(id, pw);
+                // api 호출
                 retrofitManager.logIn(user, LoginActivity.this);
 
             }
@@ -67,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements MsgSender {
     @Override
     public void sendObj(String msg, Object obj) {
 
-        if(msg=="login"){
+        if(msg=="login"){ // login 결과 반환
             String token = obj.toString();
             Toast.makeText(this, obj.toString(), Toast.LENGTH_SHORT).show();
             // 앱에 저장

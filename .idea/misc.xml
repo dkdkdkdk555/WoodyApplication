@@ -3,16 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_account_list.xml" value="0.5416658189561632" />
         <entry key="app/src/main/res/layout/activity_find.xml" value="0.4036458333333333" />
-        <entry key="app/src/main/res/layout/activity_group_del.xml" value="0.4036458333333333" />
-        <entry key="app/src/main/res/layout/activity_group_find.xml" value="0.4036458333333333" />
-        <entry key="app/src/main/res/layout/activity_group_list.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_group_del.xml" value="0.5176137288411459" />
+        <entry key="app/src/main/res/layout/activity_group_find.xml" value="0.5558324178059895" />
+        <entry key="app/src/main/res/layout/activity_group_list.xml" value="0.16972477064220184" />
         <entry key="app/src/main/res/layout/activity_group_mapping.xml" value="0.4036458333333333" />
-        <entry key="app/src/main/res/layout/activity_group_regi.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_group_regi.xml" value="0.5069051106770833" />
         <entry key="app/src/main/res/layout/activity_join.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
-        <entry key="app/src/main/res/layout/activity_pro_find.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_pro_find.xml" value="0.42288106282552085" />
+        <entry key="app/src/main/res/layout/activity_pro_list.xml" value="0.5228763156467013" />
         <entry key="app/src/main/res/layout/item_layout.xml" value="0.2111111111111111" />
       </map>
     </option>

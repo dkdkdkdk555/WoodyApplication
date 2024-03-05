@@ -1,5 +1,7 @@
 package com.example.woodyapplication.net;
 
+import android.accounts.Account;
+
 import com.example.woodyapplication.dto.AccountLoginRequestDto;
 import com.example.woodyapplication.dto.User;
 
@@ -9,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -23,11 +26,11 @@ public interface RetrofitService {
 
     // 회원 정보 조회
     @GET("/api/v1/account/{id}")
-    Call<TempDto> requestAccoutInfo(@Path("id")int id);
+    Call<ResDt<AccountDto>> requestAccoutInfo(@Path("id")int id);
 
     // 회원 list
     @GET("/api/v1/account/list")
-    Call<TempDto> requestAccountList();
+    Call<ResDt<List<AccountDto>>> requestAccountList();
 
     // 그룹 등록
     @POST("/api/v1/accountgroup")
@@ -39,7 +42,11 @@ public interface RetrofitService {
 
     // 그룹 조회
     @GET("/api/v1/accountgroup/{id}")
-    Call<TempDto> requestGroupInfo(@Path("id")int id);
+    Call<ResDt<ResGroup>> requestGroupInfo(@Path("id")int id);
+
+    // 그룹 삭제 (state : 0-활성화, 100-비활성화)
+    @PUT("/api/v1/accountgroup/{id}")
+    Call<ResDt<Object>> deleteGroup(@Path("id")int id, @Body AccountGroupSaveRequestDto dto);
 
     // 프로젝트 등록
     @POST("/api/v1/project")
@@ -47,9 +54,9 @@ public interface RetrofitService {
 
     // 프로젝트 조회
     @GET("/api/v1/project/{id}")
-    Call<TempDto> requestProjectInfo(@Path("id")int id);
+    Call<ResDt<ProjectResponseDto>> requestProjectInfo(@Path("id")int id);
 
     // 프로젝트 list
     @GET("/api/v1/project/list")
-    Call<TempDto> requestProjectList();
+    Call<ResDt<List<ProjectResponseDto>>> requestProjectList();
 }

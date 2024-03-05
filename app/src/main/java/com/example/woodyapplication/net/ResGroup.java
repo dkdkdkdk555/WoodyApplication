@@ -30,7 +30,16 @@ public class ResGroup {
     private int id;
     private String name;
     private int projectId;
+    private int state;
     private List<AccountDto> accountDtos;
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
 
     public int getId() {
         return id;

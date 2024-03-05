@@ -12,4 +12,13 @@ public class TempDto {
 
     @SerializedName("value")
     private String value;
+
+    @Override
+    public String toString() {
+        return "TempDto{" +
+                "result=" + result +
+                ", status='" + status + '\'' +
+                ", value='" + value + '\'' +
+                '}';
+    }
 }

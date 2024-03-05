@@ -15,7 +15,9 @@ import com.example.woodyapplication.net.RetrofitClient;
 import com.example.woodyapplication.net.RetrofitManager;
 import com.example.woodyapplication.net.RetrofitService;
 
-
+/**
+ * 회원가입
+ */
 public class JoinActivity extends AppCompatActivity implements MsgSender {
 
     private EditText join_et_email;

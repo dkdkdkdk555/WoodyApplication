@@ -1,6 +1,5 @@
 package com.example.woodyapplication;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         btn_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListActivity.class);
+                Intent intent = new Intent(MainActivity.this, AccountListActivity.class);
                 startActivity(intent);
             }
         });
@@ -100,14 +99,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_group_map = findViewById(R.id.btn_group_map);
-        btn_group_map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,GroupMappingActivity.class);
-                startActivity(intent);
-            }
-        });
+//        btn_group_map = findViewById(R.id.btn_group_map);
+//        btn_group_map.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this,GroupMappingActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         btn_group_del = findViewById(R.id.btn_group_del);
         btn_group_del.setOnClickListener(new View.OnClickListener() {
@@ -145,14 +144,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_pro_map = findViewById(R.id.btn_pro_map);
-        btn_pro_map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ProMapActivity.class);
-                startActivity(intent);
-            }
-        });
+//        btn_pro_map = findViewById(R.id.btn_pro_map);
+//        btn_pro_map.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this,ProMapActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
 

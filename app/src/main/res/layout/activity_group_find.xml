@@ -1,9 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GroupFindActivity">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".FindActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="그룹 조회"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 입력란 -->
+    <EditText
+        android:id="@+id/inputIdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="24번이 부산대"
+        android:inputType="text"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- 조회 버튼 -->
+    <Button
+        android:id="@+id/searchBtnn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="조회"
+        android:layout_gravity="end"
+        android:layout_marginBottom="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textViewId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID: "
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name: "
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/textViewState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="State: "
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/textViewProjectId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Project ID: "
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/textViewAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account들 : "
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

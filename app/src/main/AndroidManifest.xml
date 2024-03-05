@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WoodyApplication">
         <activity
-            android:name=".ProMapActivity"
-            android:exported="false" />
-        <activity
             android:name=".ProListActivity"
             android:exported="false" />
         <activity
@@ -20,12 +17,6 @@
             android:exported="false" />
         <activity
             android:name=".ProRegiActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GroupDelActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GroupMappingActivity"
             android:exported="false" />
         <activity
             android:name=".GroupListActivity"
@@ -43,8 +34,13 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".GroupDelActivity"
+            android:exported="false" />
+        <activity
             android:name=".JoinActivity"
             android:exported="false" />
+        <activity android:name=".AccountListActivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

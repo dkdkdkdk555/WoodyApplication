@@ -1,9 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".FindActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- "회원 조회" 텍스트 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원 조회"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 입력란 -->
+    <EditText
+        android:id="@+id/inputId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="id"
+        android:inputType="text"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- 조회 버튼 -->
+    <Button
+        android:id="@+id/searchBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="조회"
+        android:layout_gravity="end"
+        android:layout_marginBottom="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ID -->
+            <TextView
+                android:id="@+id/textViewId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ID:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Created Date -->
+            <TextView
+                android:id="@+id/textViewCreatedDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Created Date:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Kind -->
+            <TextView
+                android:id="@+id/textViewKind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kind:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- State -->
+            <TextView
+                android:id="@+id/textViewState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="State:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Email -->
+            <TextView
+                android:id="@+id/textViewEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Name -->
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Phone Number -->
+            <TextView
+                android:id="@+id/textViewPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone Number:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Extra Phone Number -->
+            <TextView
+                android:id="@+id/textViewExtraPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Extra Phone Number:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Terms Agreed -->
+            <TextView
+                android:id="@+id/textViewTermsAgreed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Terms Agreed:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Verify -->
+            <TextView
+                android:id="@+id/textViewVerify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Verify:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Affiliation -->
+            <TextView
+                android:id="@+id/textViewAffiliation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Affiliation:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Images -->
+            <TextView
+                android:id="@+id/textViewImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Images:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Account Group Id -->
+            <TextView
+                android:id="@+id/textViewAccountGroupId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Account Group Id:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
