@@ -3,12 +3,15 @@ package com.example.woodyapplication;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.woodyapplication.eventlistener.MsgSender;
 import com.example.woodyapplication.net.AccountDto;
@@ -20,6 +23,7 @@ import com.example.woodyapplication.net.RetrofitService;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,6 +40,8 @@ public class GroupFindActivity extends AppCompatActivity implements MsgSender {
     private TextView textViewState;
     private TextView textViewProjectId;
     private TextView textViewAccount;
+
+    private List<AccountDto> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +71,25 @@ public class GroupFindActivity extends AppCompatActivity implements MsgSender {
                 retrofitManager.getGroupInfo(id, GroupFindActivity.this);
             }
         });
+
+        Button moreBtn = findViewById(R.id.moreBtn);
+        moreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // AccountsFragment로 화면 전환
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                AccountsFragment fragment = new AccountsFragment();
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelableArrayList("list", (ArrayList<AccountDto>) list);
+
+                fragment.setArguments(bundle);
+                fragmentTransaction.replace(R.id.fragmentLayout, fragment);
+                fragmentTransaction.addToBackStack(null); // 뒤로가기 동작을 위한 추가
+                fragmentTransaction.commit();
+            }
+        });
     }
 
     @Override
@@ -77,7 +102,7 @@ public class GroupFindActivity extends AppCompatActivity implements MsgSender {
             textViewName.setText("Name : " + group.getName());
             textViewState.setText("State : " + group.getState());
             textViewProjectId.setText("Project ID : " + group.getProjectId());
-            List<AccountDto> list =  group.getAccountDtos();
+            list =  group.getAccountDtos();
             String accounts = "";
             for (AccountDto accountDto : list) {
                 accounts += accountDto.getName() + ",";

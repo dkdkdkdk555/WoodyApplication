@@ -1,8 +1,13 @@
 package com.example.woodyapplication.net;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.util.*;
 
-public class AccountDto {
+public class AccountDto implements Parcelable {
     /**
      * "accountDtos": [
      *      *         {
@@ -157,5 +162,15 @@ public class AccountDto {
                 ", images=" + images +
                 ", accountGroupId=" + accountGroupId +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+
     }
 }

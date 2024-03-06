@@ -12,10 +12,13 @@
         <entry key="app/src/main/res/layout/activity_group_regi.xml" value="0.5069051106770833" />
         <entry key="app/src/main/res/layout/activity_join.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.4036458333333333" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33177947998046875" />
         <entry key="app/src/main/res/layout/activity_pro_find.xml" value="0.42288106282552085" />
         <entry key="app/src/main/res/layout/activity_pro_list.xml" value="0.5228763156467013" />
+        <entry key="app/src/main/res/layout/fragment_accounts.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/layout/fragment_accounts_layout.xml" value="0.3685185185185185" />
         <entry key="app/src/main/res/layout/item_layout.xml" value="0.2111111111111111" />
+        <entry key="app/src/main/res/layout/item_layout2.xml" value="0.3890625" />
       </map>
     </option>
   </component>

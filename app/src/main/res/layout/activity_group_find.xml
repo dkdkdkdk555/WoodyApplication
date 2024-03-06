@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".FindActivity">
+    android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,7 +82,27 @@
                 android:text="Account들 : "
                 android:textSize="16sp"
                 android:textStyle="bold"/>
-        </LinearLayout>
 
+            <Button
+                android:id="@+id/moreBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자세히 보기"
+                android:layout_gravity="end"
+                android:layout_marginBottom="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <FrameLayout
+                    android:id="@+id/fragmentLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </FrameLayout>
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>
