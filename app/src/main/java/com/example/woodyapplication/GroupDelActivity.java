@@ -53,11 +53,10 @@ public class GroupDelActivity extends AppCompatActivity implements MsgSender {
                 String nameV = String.valueOf(name.getText());
 
                 RequestDto requestDto = new RequestDto();
-//                res.setId(id);
-//                if(stateV != null || stateV != "") res.setState(Integer.parseInt(stateV));
+                requestDto.setState(100);
                 if(nameV != null || nameV != "") requestDto.setName(nameV);
 
-                retrofitManager.deleteAccountGroup(id, requestDto, GroupDelActivity.this);
+                retrofitManager.deleteAccountGroup(Long.parseLong(String.valueOf(id)), requestDto, GroupDelActivity.this);
             }
         });
 

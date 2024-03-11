@@ -72,7 +72,10 @@ public class RetrofitManager {
         call.enqueue( new Callback<ResDt<List<ResGroup>>>() {
             @Override
             public void onResponse(Call<ResDt<List<ResGroup>>> call, Response<ResDt<List<ResGroup>>> response) {
-                Log.d("PUH", response.body().getResult().toString());
+                List<ResGroup> list = response.body().getResult();
+                for (ResGroup o : list) {
+                    Log.d("PUH", o.getName() + "::" + o.getId() );
+                }
                 msgSender.sendObj("list", response.body().getResult());
             }
 
@@ -126,41 +129,37 @@ public class RetrofitManager {
     // 그룹 생성
     public void createAccountGroup(RequestDto requestDto, MsgSender msgSender) {
 
-        Call<Void> call = retrofitService.createAccountGroup(requestDto);
+        Call<Void> call = retrofitService.createAccountGroup(requestDto, null, null);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+//                Log.d("PUH", response.body().toString());
+                Log.d("PUH", response.body().toString());
                 if (response.isSuccessful()) {
                     // 성공적으로 처리됨
-                    Log.d("MainActivity", "Account group created successfully");
                 } else {
                     // 서버가 다른 상태 코드로 응답한 경우 처리
-                    Log.e("MainActivity", "Failed to create account group, error code: " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 // 네트워크 오류 또는 요청 실패
-                Log.e("MainActivity", "Failed to create account group", t);
+                Log.d("PUH", t.toString());
             }
         });
     }
 
     // 그룹 삭제
-    public void deleteAccountGroup(int id, RequestDto requestDto, MsgSender msgSender) {
+    public void deleteAccountGroup(Long id, RequestDto requestDto, MsgSender msgSender) {
 
-        Call<Void> call = retrofitService.deleteGroup(id, requestDto);
+        Call<Void> call = retrofitService.deleteGroup(id, requestDto, null, null, null);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    // 성공적으로 처리됨
-                    Log.e("PUH", response.body().toString());
-                } else {
-                    // 서버가 다른 상태 코드로 응답한 경우 처리
-                    Log.e("MainActivity", "Failed to create account group, error code: " + response.code());
-                }
+
+                Log.d("PUH", response.code()==200?"성공!!":"실패");
+
             }
 
             @Override

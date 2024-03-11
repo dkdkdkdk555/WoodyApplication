@@ -7,11 +7,16 @@ import com.example.woodyapplication.dto.User;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -33,8 +38,11 @@ public interface RetrofitService {
     Call<ResDt<List<AccountDto>>> requestAccountList();
 
     // 그룹 등록
+    @Multipart
     @POST("/api/v1/accountgroup")
-    Call<Void> createAccountGroup(@Body RequestDto requestDto);
+    Call<Void> createAccountGroup( @Part("requestDto") RequestDto requestDto,
+                                   @Part("managerDto") RequestBody managerDto,
+                                   @Part MultipartBody.Part logo);
 
     // 그룹 list
     @GET("/api/v1/accountgroup/list")
@@ -46,7 +54,14 @@ public interface RetrofitService {
 
     // 그룹 삭제 (state : 0-활성화, 100-비활성화)
     @PUT("/api/v1/accountgroup/{id}")
-    Call<Void> deleteGroup(@Path("id")int id, @Body RequestDto requestDto);
+    @Multipart
+    Call<Void> deleteGroup(
+            @Path("id") Long id,
+            @Part("requestDto") RequestDto requestDto,
+            @Part("managerDto") RequestBody managerDto,
+            @Part MultipartBody.Part logo,
+            @Part("accountMapDtos") RequestBody accountMapDtos
+    );
 
     // 프로젝트 등록
     @POST("/api/v1/project")

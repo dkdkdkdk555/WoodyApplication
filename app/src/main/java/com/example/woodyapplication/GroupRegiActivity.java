@@ -50,6 +50,8 @@ public class GroupRegiActivity extends AppCompatActivity implements MsgSender {
                 String name = String.valueOf(nameInput.getText());
                 RequestDto dto = new RequestDto();
                 dto.setName(name);
+                dto.setDescription("설명설명설명");
+                dto.setProjectId(4);
                 retrofitManager.createAccountGroup(dto, GroupRegiActivity.this);
             }
         });
